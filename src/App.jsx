@@ -5,35 +5,55 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-200">
       
-      {/* 1. Hero Section */}
-      {/* 불필요하게 넓은 여백 제거하고 적정 여백(md:px-8)으로 조정 */}
-      <header className="bg-white border-b border-slate-200 pt-20 pb-16 px-6 md:px-8">
-        <div className="max-w-[980px] mx-auto">
-          <div className="inline-block px-3 py-1 mb-6 text-sm font-semibold text-blue-700 bg-blue-100 rounded-full">
-            10년 차 웹/서비스 기획자
-          </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug mb-6 break-keep">
-            비즈니스 목표를 <span className="text-blue-600">사용자 경험(UX)</span>으로 구현하는<br className="hidden sm:block" /> 기획자, 허석윤입니다.
-          </h1>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mb-10 leading-relaxed break-keep">
-            "복잡한 시스템은 단순하게, 끊어진 여정은 매끄럽게 연결합니다."<br />
-            대규모 플랫폼 통합부터 온·오프라인 커머스, 글로벌 팬덤 서비스까지 다양한 도메인에서 비즈니스 문제를 IT 서비스로 해결해왔습니다.
-          </p>
+      {/* 1. Hero Section - 깊이감 있는 다크 네이비 테마 */}
+      <header className="relative overflow-hidden bg-slate-900 pt-20 pb-16 px-6 md:px-8">
+        {/* 우측 상단 은은한 블루 조명 포인트 */}
+        <div className="absolute top-0 right-0 -mr-24 -mt-24 w-96 h-96 rounded-full bg-blue-600 opacity-20 blur-3xl pointer-events-none"></div>
+        
+        <div className="max-w-[980px] mx-auto flex flex-col-reverse md:flex-row items-center gap-10 md:gap-12 relative z-10">
           
-          <div className="flex flex-wrap gap-4 text-sm text-slate-600">
-            <div className="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-lg">
-              <Mail size={16} />
-              <span>nennei@naver.com</span>
+          {/* Text Content */}
+          <div className="md:w-2/3 text-center md:text-left">
+            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold text-blue-300 bg-blue-900/50 border border-blue-800/50 rounded-full shadow-sm">
+              10년 차 웹/서비스 기획자
             </div>
-            <div className="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-lg">
-              <Phone size={16} />
-              <span>010-9936-6765</span>
-            </div>
-            <div className="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-lg">
-              <MapPin size={16} />
-              <span>경기 군포시 / 수도권 전 지역</span>
+            {/* 메인 타이틀 사이즈 조정: text-3xl~5xl -> text-2xl~4xl */}
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug mb-6 break-keep text-white">
+              비즈니스 목표를 <span className="text-blue-400">사용자 경험(UX)</span>으로 구현하는<br className="hidden sm:block" /> 기획자, 허석윤입니다.
+            </h1>
+            {/* 서브타이틀 사이즈 조정: text-lg~xl -> text-base~lg */}
+            <p className="text-base md:text-lg text-slate-300 max-w-2xl mb-10 leading-relaxed break-keep font-light">
+              "복잡한 시스템은 단순하게, 끊어진 여정은 매끄럽게 연결합니다."<br />
+              대규모 플랫폼 통합부터 온·오프라인 커머스, 글로벌 팬덤 서비스까지 다양한 도메인에서 비즈니스 문제를 IT 서비스로 해결해왔습니다.
+            </p>
+            
+            <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-slate-300">
+              <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-sm px-4 py-2.5 rounded-lg border border-slate-700/50 shadow-sm">
+                <Mail size={16} className="text-blue-400" />
+                <span>nennei@naver.com</span>
+              </div>
+              <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-sm px-4 py-2.5 rounded-lg border border-slate-700/50 shadow-sm">
+                <Phone size={16} className="text-blue-400" />
+                <span>010-9936-6765</span>
+              </div>
+              <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-sm px-4 py-2.5 rounded-lg border border-slate-700/50 shadow-sm">
+                <MapPin size={16} className="text-blue-400" />
+                <span>경기 군포시 / 수도권 전 지역</span>
+              </div>
             </div>
           </div>
+
+          {/* Profile Image */}
+          <div className="md:w-1/3 flex justify-center">
+            <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-full p-1.5 bg-gradient-to-tr from-blue-600 to-indigo-400 shadow-2xl flex-shrink-0">
+              <img 
+                src="/20250422_054848.jpg" 
+                alt="기획자 허석윤 프로필" 
+                className="w-full h-full object-cover object-top rounded-full border-4 border-slate-800 bg-slate-100"
+              />
+            </div>
+          </div>
+
         </div>
       </header>
 
@@ -85,7 +105,6 @@ export default function App() {
           <div className="space-y-12">
             
             {/* Case 01 */}
-            {/* 980px 레이아웃에 맞춰 md:flex-row 로 복구 */}
             <article className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col md:flex-row">
               <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center break-keep">
                 <span className="text-sm font-bold text-blue-600 mb-2 block">플랫폼 통합 및 구조화</span>
